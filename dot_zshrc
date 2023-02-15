@@ -184,5 +184,8 @@ export PATH=$PATH:/Users/theis/.linkerd2/bin
 # Created by `pipx` on 2023-02-13 10:46:20
 export PATH="$PATH:/Users/theis/.local/bin"
 
+# recommended by chezmoi https://www.chezmoi.io/user-guide/include-files-from-elsewhere/
+# since oh-my-zsh auto-updates are managed by chezmoi
+DISABLE_AUTO_UPDATE="true"
 
 eval "$(op completion zsh)"; compdef _op op

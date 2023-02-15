@@ -75,12 +75,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git conda-zsh-completion gh npm brew
-	 1password-op
-	 # zsh-syntax-highlighting must be the last plugin sourced
-	 zsh-syntax-highlighting)
+        # zsh-syntax-highlighting must be the last plugin sourced
+        zsh-syntax-highlighting)
 
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
@@ -185,3 +183,6 @@ export PATH=$PATH:/Users/theis/.linkerd2/bin
 
 # Created by `pipx` on 2023-02-13 10:46:20
 export PATH="$PATH:/Users/theis/.local/bin"
+
+
+eval "$(op completion zsh)"; compdef _op op

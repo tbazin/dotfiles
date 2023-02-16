@@ -180,7 +180,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
 
-source <(kubectl completion zsh)
+# initialize kubectl zsh completions if kubectl is installed
+if command -v kubectl &> /dev/null
+then
+    source <(kubectl completion zsh)
+fi
+
 export PATH=$PATH:/Users/theis/.linkerd2/bin
 
 # Created by `pipx` on 2023-02-13 10:46:20

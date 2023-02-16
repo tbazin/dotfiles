@@ -76,7 +76,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git conda-zsh-completion gh npm
+plugins=(git z conda-zsh-completion gh npm
         {{- if eq .chezmoi.os "darwin" }}
         brew
         {{- end }}
@@ -171,9 +171,6 @@ zstyle ":conda_zsh_completion:*" use-groups true
 #
 # If not enables sort-envs-by-time, then all environments will be sorted by alphabetical order,
 # and this option is useless.
-
-# enable the z-command
-. /opt/homebrew/etc/profile.d/z.sh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 

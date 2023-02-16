@@ -76,11 +76,16 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git conda-zsh-completion gh npm brew
+plugins=(git conda-zsh-completion gh npm
+        {{- if eq .chezmoi.os "darwin" }}
+        brew
+        {{- end }}
         # zsh-syntax-highlighting must be the last plugin sourced
         zsh-syntax-highlighting)
 
+{{- if eq .chezmoi.os "darwin" }}
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+{{- end }}
 
 source $ZSH/oh-my-zsh.sh
 autoload -U compinit && compinit
@@ -188,4 +193,10 @@ export PATH="$PATH:/Users/theis/.local/bin"
 # since oh-my-zsh auto-updates are managed by chezmoi
 DISABLE_AUTO_UPDATE="true"
 
-eval "$(op completion zsh)"; compdef _op op
+# initialize one-password zsh completions if one-password is installed
+if command -v op &> /dev/null
+then
+    eval "$(op completion zsh)"; compdef _op op
+    exit
+fi
+

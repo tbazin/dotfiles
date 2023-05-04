@@ -17,6 +17,11 @@
     url = "https://github.com/esc/conda-zsh-completion.git"
     stripComponents = 1
     refreshPeriod = "168h"
+[".oh-my-zsh/custom/plugins/zsh-better-npm-completion"]
+    type = "git-repo"
+    url = "https://github.com/lukechilds/zsh-better-npm-completion"
+    stripComponents = 1
+    refreshPeriod = "168h"
 
 ## oh-my-zsh themes
 [".oh-my-zsh/custom/themes/powerlevel10k"]

@@ -76,7 +76,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git z conda-zsh-completion gh npm zsh-better-npm-completion
+plugins=(git docker z conda-zsh-completion gh npm zsh-better-npm-completion
         {{- if eq .chezmoi.os "darwin" }}
         brew
         {{- end }}

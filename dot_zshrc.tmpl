@@ -203,3 +203,19 @@ then
     eval "$(op completion zsh)"; compdef _op op
 fi
 
+# fix history navigation after installing vi-mode
+# cf. https://github.com/ohmyzsh/ohmyzsh/issues/800#issuecomment-641740755
+zvm_after_init_commands+=(
+    "bindkey '^[[A' up-line-or-beginning-search"
+    "bindkey '^[[B' down-line-or-beginning-search"
+    "bindkey -M vicmd '^[[A' up-line-or-beginning-search"
+    "bindkey -M vicmd '^[[B' down-line-or-beginning-search"
+    "bindkey -M vicmd 'j' up-line-or-beginning-search"
+    "bindkey -M vicmd 'k' down-line-or-beginning-search"
+)
+
+# enable using Alt-Backspace to delete word in vi insert mode
+# cf. https://superuser.com/a/1436727
+zvm_after_init_commands+=(
+    "bindkey '^[^?' backward-kill-word"
+)

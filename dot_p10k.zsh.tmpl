@@ -905,7 +905,7 @@
   # Templated via chezmoi to be commented out when building Docker containers via buildkit
   # cf https://stackoverflow.com/a/69860299/5798793
   # Tip: Remove the next line to always show context.
-  {{- if ("/proc/1/cgroup" | lstat) -}}
+  {{ if ("/proc/1/cgroup" | lstat) -}}
     {{- if (output "grep" "/docker/buildkit" "/proc/1/cgroup") -}}
     #
     {{- end -}}

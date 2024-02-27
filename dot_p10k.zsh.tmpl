@@ -902,15 +902,9 @@
   typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE='%n@%m'
 
   # Don't show context unless running with privileges or in SSH.
-  # Templated via chezmoi to be commented out when building Docker containers via buildkit
-  # cf https://stackoverflow.com/a/69860299/5798793
   # Tip: Remove the next line to always show context.
-  {{ if ("/proc/1/cgroup" | lstat) -}}
-    {{- if (output "grep" "/docker/buildkit" "/proc/1/cgroup") -}}
-    #
-    {{- end -}}
-  {{- end -}}typeset -g POWERLEVEL9K_CONTEXT_{DEFAULT,SUDO}_{CONTENT,VISUAL_IDENTIFIER}_EXPANSION=
-  
+  typeset -g POWERLEVEL9K_CONTEXT_{DEFAULT,SUDO}_{CONTENT,VISUAL_IDENTIFIER}_EXPANSION=
+
   # Custom icon.
   # typeset -g POWERLEVEL9K_CONTEXT_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # Custom prefix.

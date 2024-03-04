@@ -76,7 +76,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker z conda-zsh-completion gh npm zsh-better-npm-completion tldr-zsh-completion
+plugins=(git docker z conda-zsh-completion gh npm yarn zsh-better-npm-completion tldr-zsh-completion
         {{- if eq .chezmoi.os "darwin" }}
         brew
         {{- end }}
@@ -219,3 +219,6 @@ zvm_after_init_commands+=(
 zvm_after_init_commands+=(
     "bindkey '^[^?' backward-kill-word"
 )
+
+source ~/.zsh_aliases
+source ~/.zsh_completions

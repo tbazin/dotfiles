@@ -220,5 +220,10 @@ zvm_after_init_commands+=(
     "bindkey '^[^?' backward-kill-word"
 )
 
+# enable using alt-enter for multiline commands
+zvm_after_init_commands+=(
+    "bindkey '^[^M' self-insert-unmeta"
+)
+
 source ~/.zsh_aliases
 source ~/.zsh_completions

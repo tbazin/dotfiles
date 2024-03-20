@@ -85,7 +85,9 @@ plugins=(git docker z conda-zsh-completion gh npm yarn zsh-better-npm-completion
         # https://fig.io/plugins/other/zsh-vim-mode_softmoth suggests to put vi-mode last
         zsh-vi-mode)
 
-FPATH="{{ .chezmoi.homeDir }}/share/zsh/site-functions:${FPATH}"
+{{- if eq .chezmoi.os "darwin" }}
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+{{- end }}
 
 source $ZSH/oh-my-zsh.sh
 autoload -U compinit && compinit

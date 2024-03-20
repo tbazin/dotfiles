@@ -21,9 +21,9 @@ url = "https://github.com/esc/conda-zsh-completion.git"
 stripComponents = 1
 refreshPeriod = "168h"
 
-[".oh-my-zsh/custom/plugins/tldr-zsh-completion"]
-type = "git-repo"
-url = "https://github.com/tldr-pages/tldr-c-client/"
+[".oh-my-zsh/custom/plugins/tldr-zsh-completion/tldr-zsh-completion.plugin.zsh"]
+type = "file"
+url = "https://raw.githubusercontent.com/tldr-pages/tldr-c-client/main/autocomplete/complete.zsh"
 refreshPeriod = "168h"
 
 [".oh-my-zsh/custom/plugins/zsh-better-npm-completion"]

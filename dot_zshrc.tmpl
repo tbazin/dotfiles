@@ -85,9 +85,7 @@ plugins=(git docker z conda-zsh-completion gh npm yarn zsh-better-npm-completion
         # https://fig.io/plugins/other/zsh-vim-mode_softmoth suggests to put vi-mode last
         zsh-vi-mode)
 
-{{- if eq .chezmoi.os "darwin" }}
-FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-{{- end }}
+FPATH="{{ .chezmoi.homeDir }}/share/zsh/site-functions:${FPATH}"
 
 source $ZSH/oh-my-zsh.sh
 autoload -U compinit && compinit
@@ -121,14 +119,14 @@ autoload -U bashcompinit && bashcompinit
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/theis/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('{{ .chezmoi.homeDir }}/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/theis/opt/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/theis/opt/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "{{ .chezmoi.homeDir }}/opt/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "{{ .chezmoi.homeDir }}/opt/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/theis/opt/miniconda3/bin:$PATH"
+        export PATH="{{ .chezmoi.homeDir }}/opt/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -136,10 +134,10 @@ unset __conda_setup
 
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/theis/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/theis/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '{{ .chezmoi.homeDir }}/google-cloud-sdk/path.zsh.inc' ]; then . '{{ .chezmoi.homeDir }}/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/theis/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/theis/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '{{ .chezmoi.homeDir }}/google-cloud-sdk/completion.zsh.inc' ]; then . '{{ .chezmoi.homeDir }}/google-cloud-sdk/completion.zsh.inc'; fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -188,10 +186,10 @@ then
     source <(kubectl completion zsh)
 fi
 
-export PATH=$PATH:/Users/theis/.linkerd2/bin
+export PATH=$PATH:{{ .chezmoi.homeDir }}/.linkerd2/bin
 
 # Created by `pipx` on 2023-02-13 10:46:20
-export PATH="$PATH:/Users/theis/.local/bin"
+export PATH="$PATH:{{ .chezmoi.homeDir }}/.local/bin"
 
 # recommended by chezmoi https://www.chezmoi.io/user-guide/include-files-from-elsewhere/
 # since oh-my-zsh auto-updates are managed by chezmoi

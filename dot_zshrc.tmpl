@@ -88,7 +88,9 @@ plugins=(git docker z conda-zsh-completion gh npm zsh-better-npm-completion tldr
         )
 
 {{- if eq .chezmoi.os "darwin" }}
-FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+# derived from https://docs.brew.sh/Tips-and-Tricks#load-homebrew-from-the-same-dotfiles-on-different-operating-systems
+command -v brew >>/dev/null || export PATH="$PATH:/opt/homebrew/bin:/home/linuxbrew/.linuxbrew/bin:/usr/local/bin"
+command -v brew >>/dev/null && eval "$(brew shellenv)"
 {{- end }}
 
 # replicate behaviour of Docker Desktop for docker completions installation

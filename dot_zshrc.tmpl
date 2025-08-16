@@ -84,7 +84,8 @@ plugins=(git docker z conda-zsh-completion gh npm zsh-better-npm-completion tldr
         # zsh-syntax-highlighting must be the last plugin sourced
         zsh-syntax-highlighting
         # https://fig.io/plugins/other/zsh-vim-mode_softmoth suggests to put vi-mode last
-        zsh-vi-mode)
+        # zsh-vi-mode
+        )
 
 {{- if eq .chezmoi.os "darwin" }}
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"

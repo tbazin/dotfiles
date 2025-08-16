@@ -90,6 +90,9 @@ plugins=(git docker z conda-zsh-completion gh npm zsh-better-npm-completion tldr
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 {{- end }}
 
+# replicate behaviour of Docker Desktop for docker completions installation
+FPATH="{{ .chezmoi.homeDir }}/.docker/completions:${FPATH}"
+
 source $ZSH/oh-my-zsh.sh
 autoload -U compinit && compinit
 autoload -U bashcompinit && bashcompinit

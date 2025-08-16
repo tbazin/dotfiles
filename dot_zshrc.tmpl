@@ -76,16 +76,17 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker z conda-zsh-completion gh npm zsh-better-npm-completion tldr-zsh-completion poetry
-        zsh-autosuggestions
-        {{- if eq .chezmoi.os "darwin" }}
-        brew
-        {{- end }}
-        # zsh-syntax-highlighting must be the last plugin sourced
-        zsh-syntax-highlighting
-        # https://fig.io/plugins/other/zsh-vim-mode_softmoth suggests to put vi-mode last
-        # zsh-vi-mode
-        )
+plugins=(
+    git docker z conda-zsh-completion gh npm zsh-better-npm-completion tldr-zsh-completion poetry
+    zsh-autosuggestions
+    {{- if eq .chezmoi.os "darwin" }}
+    brew
+    {{- end }}
+    # zsh-syntax-highlighting must be the last plugin sourced
+    zsh-syntax-highlighting
+    # https://fig.io/plugins/other/zsh-vim-mode_softmoth suggests to put vi-mode last
+    # zsh-vi-mode
+)
 
 {{- if eq .chezmoi.os "darwin" }}
 # derived from https://docs.brew.sh/Tips-and-Tricks#load-homebrew-from-the-same-dotfiles-on-different-operating-systems

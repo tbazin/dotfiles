@@ -44,6 +44,12 @@ url = "https://github.com/jeffreytse/zsh-vi-mode"
 stripComponents = 1
 refreshPeriod = "168h"
 
+[".oh-my-zsh/custom/plugins/alembic-completions"]
+type = "git-repo"
+url = "https://github.com/datumbrain/oh-my-zsh-alembic"
+stripComponents = 1
+refreshPeriod = "168h"
+
 ##############################################################################
 ## oh-my-zsh themes
 [".oh-my-zsh/custom/themes/powerlevel10k"]

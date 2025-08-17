@@ -79,6 +79,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
     git docker z conda-zsh-completion gh npm zsh-better-npm-completion tldr-zsh-completion poetry
     zsh-autosuggestions
+    alembic
     {{- if eq .chezmoi.os "darwin" }}
     brew
     {{- end }}

@@ -44,9 +44,10 @@ url = "https://github.com/jeffreytse/zsh-vi-mode"
 stripComponents = 1
 refreshPeriod = "168h"
 
-[".oh-my-zsh/custom/plugins/alembic-completions"]
+[".oh-my-zsh/custom/plugins/alembic"]
 type = "git-repo"
 url = "https://github.com/datumbrain/oh-my-zsh-alembic"
+exact = true
 stripComponents = 1
 refreshPeriod = "168h"
 
